@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>calculator</title>
+        <style>
+            .calculator-container{
+                width: 450px;
+                background-color: grey;
+                padding: 20px;
+                border-radius: 10px;
+                margin: auto;
+                border: 10px double black;
+                box-shadow: 30px 20px 8px black;
+            }
+            .row{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                margin-top: 10px;
+            }
+            .btn{
+                height: 65px;
+                width: 65px;
+                font-size: 25px;
+                font-weight: bold;
+                background-color: black;
+                color: white;
+                border-radius: 8px;
+                border: 2px solid white;
+            }
+            .btn:hover{
+                cursor: pointer;
+                box-shadow: 0px 3px 7px red;
+            }
+            .input-screen{
+                width: 100%;
+                height: 80px;
+                margin-bottom: 20px;
+                font-size: 60px;
+                background-color: yellowgreen;
+            }
+            .brand{
+                color:tomato;
+                font-weight: bold;
+            }
+
+            .btc{
+                background-color: green;
+                height: 65px;
+                width: 65px;
+                font-weight: bold;
+                font-size: 25px;
+                color: white;
+                border-radius: 8px;
+                border: 2px solid white;
+                cursor: pointer;
+            }
+
+        </style>
+
+        <script>
+            function pressbutton(buttonValue)
+            {
+
+                let calText =   document.querySelector(".input-screen").value + buttonValue + "";
+                document.querySelector(".input-screen").value = calText;
+            }
+
+            function calculate()
+            {
+                let calText =   document.querySelector(".input-screen").value;
+                document.querySelector(".input-screen").value = eval(calText);
+            }
+
+            function clearScreen()
+            {
+                document.querySelector(".input-screen").value = "0";
+            }
+
+            function off()
+            {
+                document.querySelector(".input-screen").value = "";
+            }
+
+            function on()
+            {
+                
+                document.querySelector(".input-screen").value = "0";
+            }
+        </script>
+    </head>
+    <body>
+        <div class="calculator-container">
+            <span class="brand"> INDIAN DIGIT SEPARATOR</span>
+            <div class="row">
+                <input type="text" id="input" class="input-screen" />
+
+            </div>
+            <div class="row">
+                <button class="btn" onclick="pressbutton(7)">7</button>
+                <button class="btn" onclick="pressbutton(8)">8</button>
+                <button class="btn" onclick="pressbutton(9)">9</button>
+                <button class="btn" onclick="pressbutton('/')">/</button>
+                <button class="btn" style="background-color:red;" onclick="clearScreen() ">AC</button>
+                <button class="btc" onclick="on()">ON</button>
+            </div>
+            <div class="row">
+                <button class="btn" onclick="pressbutton(4)">4</button>
+                <button class="btn" onclick="pressbutton(5)">5</button>
+                <button class="btn" onclick="pressbutton(6)">6</button>
+                <button class="btn" onclick="pressbutton('*')">*</button>
+                <button class="btn" onclick="pressbutton('%')">%</button>
+                <button class="btn" onclick="pressbutton('GT')">GT</button>
+            </div>
+            <div class="row">
+                <button class="btn" onclick="pressbutton(1)">1</button>
+                <button class="btn" onclick="pressbutton(2)">2</button>
+                <button class="btn" onclick="pressbutton(3)">3</button>
+                <button class="btn" onclick="pressbutton('+')">+</button>
+                <button class="btn" onclick="pressbutton('MU')">MU</button>
+                <button class="btc" onclick="off()">OFF</button>
+            </div>
+            <div class="row">
+                <button class="btn" onclick="pressbutton(0)">0</button>
+                <button class="btn" onclick="pressbutton(00)">00</button>
+                <button class="btn" onclick="pressbutton('.')">.</button>
+                <button class="btn" onclick="pressbutton('-')">-</button>
+                <button class="btn" onclick="calculate()">=</button>
+                <button class="btn" onclick="pressbutton('M=')">M=</button>
+            </div>
+        </div>
+    </body>
+</html>
